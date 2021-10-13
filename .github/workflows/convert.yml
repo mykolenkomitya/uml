@@ -9,9 +9,9 @@ jobs:
     - name: 'Checkout'
       uses: actions/checkout@v2
 
-#     - name: 'Make tmp/ dir'
-#       run: |
-#         mkdir -p tmp/
+    - name: 'Make tmp/ dir'
+      run: |
+        mkdir -p tmp/
 
     - name: 'Convert'
       uses: grassedge/generate-plantuml-action@v1.5
@@ -21,16 +21,16 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-#     - name: 'Move *.svg files to tmp/ dir'
-#       run: |
-#         pwd
-#         ls -la
-#         ls -la input/
-#         mv input/*.svg tmp/
+    - name: 'Move *.svg files to tmp/ dir'
+      run: |
+        pwd
+        ls -la
+        ls -la example/
+        mv example/yet_another_example.svg tmp/
 
     - name: 'Upload'
       uses: actions/upload-artifact@v2
       with:
-        path: example
+        path: tmp
         if-no-files-found: ignore
         retention-days: 1
