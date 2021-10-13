@@ -16,27 +16,14 @@ jobs:
     - name: 'Convert'
       uses: grassedge/generate-plantuml-action@v1.5
       with:
-        path: example
-        message: "Add rendered SVG files"
+        path: tmp
+        message: "Add rendered SVG files to tmp/"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: 'Check'
-      run: |
-        pwd
-        ls -la
-        ls -la example/
-
-#     - name: 'Move *.svg files to tmp/ dir'
-#       run: |
-#         pwd
-#         ls -la
-#         ls -la example/
-#         mv example/yet_another_example.svg tmp/
 
     - name: 'Upload'
       uses: actions/upload-artifact@v2
       with:
-        path: example/*.svg
+        path: tmp/*.svg
         if-no-files-found: ignore
         retention-days: 1
