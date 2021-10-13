@@ -22,4 +22,4 @@ jobs:
         with:
           path: example
           if-no-files-found: ignore
-          retention-days: 2
+          retention-days: 3
