@@ -17,7 +17,7 @@ jobs:
     - name: 'Convert'
       uses: grassedge/generate-plantuml-action@v1.5
       with:
-        path: input
+        path: example
         message: "Rendered SVG files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -33,6 +33,6 @@ jobs:
     - name: 'Upload'
       uses: actions/upload-artifact@v2
       with:
-        path: tmp
+        path: example
         if-no-files-found: ignore
         retention-days: 1
