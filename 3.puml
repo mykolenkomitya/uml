@@ -1,5 +1,6 @@
 @startuml
 actor Foo1
+actor Foo2
 boundary Foo2
 control Foo3
 entity Foo4
