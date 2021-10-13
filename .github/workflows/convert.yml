@@ -12,7 +12,6 @@ jobs:
 #     - name: 'Make tmp/ dir'
 #       run: |
 #         mkdir -p tmp/
-#         ls -la input/
 
     - name: 'Convert'
       uses: grassedge/generate-plantuml-action@v1.5
