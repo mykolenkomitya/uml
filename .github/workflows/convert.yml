@@ -16,7 +16,7 @@ jobs:
     - name: 'Convert'
       uses: grassedge/generate-plantuml-action@v1.5
       with:
-        path:
+#        path: tmp
         message: "Add rendered SVG files to tmp/"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
