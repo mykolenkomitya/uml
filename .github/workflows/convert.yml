@@ -17,7 +17,7 @@ jobs:
       uses: grassedge/generate-plantuml-action@v1.5
       with:
         path: example
-        message: "Rendered SVG files"
+        message: "Add rendered SVG files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
