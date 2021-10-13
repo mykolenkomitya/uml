@@ -8,11 +8,13 @@ jobs:
     steps:
     - name: 'Checkout'
       uses: actions/checkout@v2
+      run: |
+        mkdir -p output/
 
     - name: 'Convert'
       uses: grassedge/generate-plantuml-action@v1.5
       with:
-        path: example
+        path: output
         message: "Rendered SVG files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -20,6 +22,6 @@ jobs:
     - name: 'Upload'
       uses: actions/upload-artifact@v2
       with:
-        path: example
+        path: output
         if-no-files-found: ignore
-        retention-days: 3
+        retention-days: 1
