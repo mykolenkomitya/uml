@@ -22,13 +22,13 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: 'Move *.svg files to tmp/ dir'
-      run: |
-        pwd
-        ls -la
-        ls -la input/
-        mv input/*.svg tmp/
-        ls -la tmp/
+#     - name: 'Move *.svg files to tmp/ dir'
+#       run: |
+#         pwd
+#         ls -la
+#         ls -la input/
+#         mv input/*.svg tmp/
+#         ls -la tmp/
 
     - name: 'Upload'
       uses: actions/upload-artifact@v2
