@@ -3,7 +3,7 @@ name: convert
 on: push
 
 jobs:
-  GENERATE_SVG:
+  UML_to_SVG:
     runs-on: ubuntu-latest
     steps:
     - name: 'Checkout'
@@ -13,7 +13,7 @@ jobs:
       uses: grassedge/generate-plantuml-action@v1.5
       with:
         path: example
-        message: "Render PlantUML files"
+        message: "Rendered SVG files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
