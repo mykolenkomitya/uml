@@ -1,6 +1,6 @@
 # Example
 
-```plantuml:md-sample-sequence
+```
 @startuml
 actor Foo1
 boundary Foo2
@@ -17,3 +17,18 @@ Foo1 -> Foo6 : To collections
 ```
 
 ![](./example/example.svg)
+
+```
+@startuml
+actor client
+node app
+node car
+node tshirt
+
+car -> app
+app -> client
+client -> tshirt
+@enduml
+```
+
+![](./example/another_example.svg)
