@@ -24,8 +24,9 @@ jobs:
 
     - name: 'Move *.svg to tmp/ dir'
       run: |
-        mv input/*.svg tmp/
+        pwd
         ls -la input/
+        mv /input/*.svg tmp/
         ls -la tmp/
 
     - name: 'Upload'
