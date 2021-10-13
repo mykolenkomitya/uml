@@ -9,10 +9,6 @@ jobs:
     - name: 'Checkout'
       uses: actions/checkout@v2
 
-#     - name: 'Make tmp/ dir'
-#       run: |
-#         mkdir -p tmp/
-
     - name: 'Convert'
       uses: grassedge/generate-plantuml-action@v1.5
       with:
