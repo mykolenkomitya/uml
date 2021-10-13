@@ -19,8 +19,8 @@ jobs:
       with:
         path: input
         message: "Rendered SVG files"
-#       env:
-#         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     - name: 'Move *.svg files to tmp/ dir'
       run: |
