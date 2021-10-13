@@ -17,9 +17,9 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: 'Upload'
-        uses: actions/upload-artifact@v2
-        with:
-          path: example
-          if-no-files-found: ignore
-          retention-days: 3
+    - name: 'Upload'
+      uses: actions/upload-artifact@v2
+      with:
+        path: example
+        if-no-files-found: ignore
+        retention-days: 3
