@@ -20,13 +20,15 @@ jobs:
         message: "Rendered SVG files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-    - name: 'Move *.svg files to tmp/ dir'
       run: |
         pwd
-        ls -la
-        ls -la example/
-        mv example/yet_another_example.svg tmp/
+
+#     - name: 'Move *.svg files to tmp/ dir'
+#       run: |
+#         pwd
+#         ls -la
+#         ls -la example/
+#         mv example/yet_another_example.svg tmp/
 
     - name: 'Upload'
       uses: actions/upload-artifact@v2
