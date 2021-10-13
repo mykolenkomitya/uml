@@ -12,19 +12,20 @@ jobs:
     - name: 'Make tmp/ dir'
       run: |
         mkdir -p tmp/
-        pwd
-        ls -la
-        mv *.puml tmp/
-        ls -la tmp/
-        ls -la
 
     - name: 'Convert'
       uses: grassedge/generate-plantuml-action@v1.5
       with:
-        path: tmp
+        path: example
         message: "Rendered SVG files"
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: 'Move *.svg to tmp/ dir'
+      run: |
+        mv example/*.svg tmp/
+        ls -la example/
+        ls -la tmp/
 
     - name: 'Upload'
       uses: actions/upload-artifact@v2
