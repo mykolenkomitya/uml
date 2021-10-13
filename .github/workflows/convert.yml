@@ -28,7 +28,6 @@ jobs:
 #         ls -la
 #         ls -la input/
 #         mv input/*.svg tmp/
-#         ls -la tmp/
 
     - name: 'Upload'
       uses: actions/upload-artifact@v2
