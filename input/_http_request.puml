@@ -1,0 +1,34 @@
+@startuml
+skinparam maxMessageSize 20
+
+actor Client
+
+participant Qrator
+box "Провайдер servers.com"
+collections "hs17\nmow1-fe01\nmow1-fe02"
+collections "hs1\nmow1-lbi-01"
+collections "Backend\ntinker2"
+collections "Rancher\nk8s"
+end box
+participant Selectel
+
+Client->Qrator: Send Request
+note left: Мобильное приложение\nвыполняет запрос на сервер
+Client<-[#0000FF]Qrator: Send Response
+Qrator->"hs17\nmow1-fe01\nmow1-fe02": proxy_pass Request
+note over "hs17\nmow1-fe01\nmow1-fe02": tls termination
+Qrator<-[#0000FF]"hs17\nmow1-fe01\nmow1-fe02": Send Response
+"hs17\nmow1-fe01\nmow1-fe02"->"hs1\nmow1-lbi-01": proxy_pass Request
+"hs17\nmow1-fe01\nmow1-fe02"<-[#0000FF]"hs1\nmow1-lbi-01": Send Response
+"hs1\nmow1-lbi-01"->Selectel: Get static
+"hs1\nmow1-lbi-01"<-[#0000FF]Selectel: Send static
+|||
+"hs1\nmow1-lbi-01"->"Backend\ntinker2": proxy_pass Request
+"hs1\nmow1-lbi-01"<-[#0000FF]"Backend\ntinker2": Send Response
+|||
+"hs1\nmow1-lbi-01"->"Rancher\nk8s": proxy_pass Request
+"hs1\nmow1-lbi-01"<-[#0000FF]"Rancher\nk8s": Send Response
+|||
+"hs17\nmow1-fe01\nmow1-fe02"->"Rancher\nk8s": proxy_pass Request
+"hs17\nmow1-fe01\nmow1-fe02"<-[#0000FF]"Rancher\nk8s": Send Response
+@enduml
