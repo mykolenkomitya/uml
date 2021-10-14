@@ -30,4 +30,4 @@ jobs:
         with:
           path: input/*.svg
           if-no-files-found: ignore
-          retention-days: 1
+          retention-days: 2
