@@ -10,10 +10,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Get changed UML files
+        id: getfile
+        run: |
+          echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD | grep .puml | xargs)"
+
       - name: Generate SVG Diagrams
         uses: holowinski/plantuml-github-action@main
         with:
-          args: -v -tsvg tmp/*.puml
+          args: -v -tsvg ${{steps.getfile.outputs.files}}
 
       - name: 'Check'
         run: |
