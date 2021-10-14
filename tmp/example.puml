@@ -1,5 +1,5 @@
 @startuml
-actor Foo2
+
 actor Foo1
 boundary Foo2
 control Foo3
