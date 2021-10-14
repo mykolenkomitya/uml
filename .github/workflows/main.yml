@@ -4,7 +4,7 @@ on:
     workflow_dispatch
 
 jobs:
-  ci:
+  UML_CONVERT:
     runs-on: ubuntu-latest
     env:
         UML_FILES: ".puml"

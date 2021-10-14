@@ -1,6 +1,7 @@
 name: convert
 
-on: push
+on:
+    workflow_dispatch
 
 jobs:
   UML_to_SVG:
