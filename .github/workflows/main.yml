@@ -1,7 +1,11 @@
 name: Generate PlantUML Diagrams
 
 on:
-    workflow_dispatch
+  push:
+    paths:
+      - '**.puml'
+    branches:
+      - master
 
 jobs:
   UML_CONVERT:
@@ -36,10 +40,6 @@ jobs:
         uses: cloudbees/plantuml-github-action@master
         with:
             args: -v -tsvg ${{ steps.getfile.outputs.files }}
-#       - name: Generate PNG Diagrams
-#         uses: cloudbees/plantuml-github-action@master
-#         with:
-#             args: -v -tpng ${{ steps.getfile.outputs.files }}
 
       - name: 'Check'
         run: |
