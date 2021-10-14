@@ -5,7 +5,7 @@ on:
     paths:
       - '**.puml'
     branches:
-      - master
+      - main
 
 jobs:
   UML_CONVERT:
