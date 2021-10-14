@@ -20,3 +20,10 @@ jobs:
             pwd
             ls -la tmp/
             ls -la
+
+      - name: 'Upload'
+        uses: actions/upload-artifact@v2
+        with:
+          path: tmp/*.svg
+          if-no-files-found: ignore
+          retention-days: 1
