@@ -2,31 +2,24 @@ name: Generate PlantUML Diagrams
 
 on: push
 
-
 jobs:
-  plantuml:
+  Generate_PlantUML:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: 'Checkout'
         uses: actions/checkout@v2
         with:
           fetch-depth: 2
 
-      - name: Get changed UML files
+      - name: 'Get changed UML files in repo'
         id: getfile
         run: |
           echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD | grep .puml | xargs)"
 
-      - name: Generate SVG Diagrams
+      - name: 'Generate SVG Diagrams'
         uses: holowinski/plantuml-github-action@main
         with:
-          args: -v -tsvg ${{steps.getfile.outputs.files}}
-
-      - name: 'Check'
-        run: |
-            pwd
-            ls -la tmp/
-            ls -la
+          args: -v -tsvg ${{ steps.getfile.outputs.files }}
 
       - name: 'Upload'
         uses: actions/upload-artifact@v2

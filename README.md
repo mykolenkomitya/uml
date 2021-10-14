@@ -16,7 +16,7 @@ Foo1 -> Foo6 : To collections
 @enduml
 ```
 
-![](./tmp/example.svg)
+![](./input/example.svg)
 
 ```
 @startuml
@@ -31,4 +31,4 @@ client -> tshirt
 @enduml
 ```
 
-![](./tmp/another_example.svg)
+![](./input/another_example.svg)
