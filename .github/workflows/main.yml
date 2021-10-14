@@ -13,6 +13,7 @@ jobs:
       - name: Get changed UML files
         id: getfile
         run: |
+          cd tmp/
           echo "::set-output name=files::$(git diff --name-only HEAD^ HEAD | grep .puml | xargs)"
 
       - name: Generate SVG Diagrams
