@@ -1,6 +1,10 @@
 name: Generate PlantUML Diagrams
 
-on: push
+on:
+  pull_request:
+    branches:
+      - 'main'
+  workflow_dispatch:
 
 jobs:
   Generate_PlantUML:
